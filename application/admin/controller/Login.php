@@ -1,14 +1,14 @@
 <?php
 
 
-namespace app\index\controller;
+namespace app\admin\controller;
 
 
 use think\captcha\Captcha;
 use think\Controller;
-use app\index\validate\LoginValidate;
+use app\admin\validate\LoginValidate;
 use think\Request;
-use app\index\model\BackUser;
+use app\admin\model\BackUser;
 class Login extends Controller
 {
     public function index(){
@@ -23,7 +23,7 @@ class Login extends Controller
             $backUser=new BackUser();
             $res=$backUser->check($data['email'],$data['password']);
             if($res){
-                return $this->success('验证通过，正在跳转......','index/index/index','',1);
+                return $this->success('验证通过，正在跳转......','admin/index/index','',1);
             }else{
                 return $this->error('邮箱或者密码错误 ，重新填写正在跳转.....','','',2);
             }
